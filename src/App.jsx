@@ -11,7 +11,7 @@ import Trail from './components/Trail'
 function App() {
   // const [count, setCount] = useState(0);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <nav className="topBar">
         <Link to="/" className="brand">The Walkability Gap</Link>
 
