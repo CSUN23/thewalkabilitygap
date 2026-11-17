@@ -1,23 +1,23 @@
-.topBar{
+.topBar {
   display: flex;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 10;
 
-  gap: 0.25rem;
   padding: 0.75rem 2rem;
   background: rgba(46, 47, 45, 0.75);
+  backdrop-filter: blur(6px);
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
 }
+
 .topBar a {
   color: var(--cream);
   text-decoration: none;
   padding: 0.4rem 0.9rem;
   border-radius: 6px;
-  
 }
 
 .topBar a:hover {
@@ -28,17 +28,23 @@
   text-underline-offset: 4px;
 }
 
-.topBar a.brand{
+.topBar a.brand {
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-.navLinks{
-  display: flex;
-  gap: 0.25rem
+.topBar a.active {
+  background: var(--amber);
+  color: var(--charcoal);
+  font-weight: 700;
 }
 
-.bg{
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.bg {
   position: relative;
   min-height: 70vh;
   display: flex;
@@ -47,62 +53,85 @@
   text-align: center;
 }
 
-.bg::before{
+.bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('/bg.jpeg');
+  background-image: url('/bg1.jpeg');
   background-size: cover;
   background-position: center bottom;
-  opacity: 0.35;
   pointer-events: none;
 }
 
-.bgContent{
-  position: relative;
-  padding: 1rem;
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 47, 45, 0.65);
+  pointer-events: none;
 }
 
-.bgContent h1{
+.bgContent {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  max-width: 800px;
+}
+
+.bgContent h1 {
+  font-family: 'Fraunces', serif;
   font-size: 3.5rem;
+  color: var(--cream);
   margin: 0;
 }
 
-.hist{
-  padding: 4rem 1.5rem;
+.bgContent h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 0.75rem auto 1rem;
+  background: var(--amber);
+  border-radius: 2px;
 }
 
-.histCont{
-  background: rgba(255,255,255,0.85);
-  border-radius: 32px;
-  padding: 2.5rem 3rem;
-  max-width: 800px;
+.bgContent p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--cream);
+  margin: 0;
+}
+
+.openSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1100px;
   margin: 0 auto;
-  box-shadow: 
-    0 10px 30px rgba(46, 47, 45, 0.08),
-    0 2px 6px rgba(46, 47, 45, 0.05);
-
+  padding: 4rem 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.histCont h2{
-  font-size: 2.2rem;
-  text-align: center;
+.openText h2 {
+  font-size: 2rem;
   margin-top: 0;
 }
 
-.histCont p{
+.openText p {
   line-height: 1.7;
-  margin-bottom: 1.2rem;
 }
 
-/* Footprints */
+.openImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
 .walkPage {
   position: relative;
-}
-
-.walkPage .hist {
-  position: relative;
-  z-index: 1;
 }
 
 .footLayer {
@@ -128,10 +157,18 @@
   display: block;
 }
 
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 7rem 1.5rem 4rem;
+}
+
 @media (max-width: 700px) {
+  .openSection { grid-template-columns: 1fr; }
   .footLayer { display: none; }
+  .bgContent h1 { font-size: 2.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .step{ opacity: 1; transition: none;}
+  .foot { opacity: 1; transition: none; }
 }

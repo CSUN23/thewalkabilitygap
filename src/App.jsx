@@ -19,6 +19,7 @@ function App() {
           <NavLink to="/data">Data</NavLink>
           <NavLink to="/analysis">Analysis</NavLink>
           <NavLink to="/bibliography">Bibliography</NavLink>
+          <NavLink to="/team">Meet the Team</NavLink>
         </div>
       </nav>
       <Routes>

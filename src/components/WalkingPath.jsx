@@ -31,7 +31,7 @@ export default function WalkingPath({ children }) {
     function build() {
       const pageBox = page.getBoundingClientRect()
       const width = pageBox.width
-      const boxes = [...page.querySelectorAll('.histCont')].map((el) => {
+      const boxes = [...page.querySelectorAll('.histCont, .openSection')].map((el) => {
         const r = el.getBoundingClientRect()
         return {
           top: r.top - pageBox.top,
@@ -47,7 +47,7 @@ export default function WalkingPath({ children }) {
         const onLeft = i % 2 === 0
         const x = onLeft ? Math.max(25, b.left - MARGIN) : Math.min(width - 25, b.right + MARGIN)
         const sway = onLeft ? -SWAY : SWAY
-        if (i === 0) pts.push({ x, y: 0 })
+        if (i === 0 && b.top > 20) pts.push({ x, y: 0 })
         pts.push({ x, y: b.top })
         pts.push({ x: x + sway, y: (b.top + b.bottom) / 2 })
         pts.push({ x, y: b.bottom })
