@@ -7,6 +7,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import Trail from './components/Trail'
+import MeetTheTeam from './pages/About'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -24,6 +25,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/team" element={<MeetTheTeam />} />
       </Routes>
     </BrowserRouter>
     
