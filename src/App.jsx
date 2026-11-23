@@ -8,6 +8,7 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Trail from './components/Trail'
 import MeetTheTeam from './pages/About'
+import Bibliography from './pages/Bib'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<MeetTheTeam />} />
+        <Route path="/bibliography" element={<Bibliography />} />
       </Routes>
     </BrowserRouter>
     
