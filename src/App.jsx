@@ -9,6 +9,8 @@ import './App.css'
 import Trail from './components/Trail'
 import MeetTheTeam from './pages/About'
 import Bibliography from './pages/Bib'
+import Data from './pages/Data'
+import Analysis from './pages/Analysis'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -28,6 +30,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<MeetTheTeam />} />
         <Route path="/bibliography" element={<Bibliography />} />
+        <Route path="/data" element={<Data />} />
+        <Route path="/analysis" element={<Analysis />} />
       </Routes>
     </BrowserRouter>
     

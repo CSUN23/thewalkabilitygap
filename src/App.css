@@ -71,6 +71,33 @@
   pointer-events: none;
 }
 
+.bg_data {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg_data::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg_data.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  pointer-events: none;
+}
+
+.bg_data::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 47, 45, 0.65);
+  pointer-events: none;
+}
+
 .bgContent {
   position: relative;
   z-index: 1;
@@ -387,4 +414,201 @@
 @media (prefers-reduced-motion: reduce) {
   .scrollPaper.unrolling,
   .scrollRoll.spinning { animation: none; }
+}
+
+.qBox p {
+  margin: 0;
+}
+
+.dataPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;     /* no padding on top, so the boxes can overlap */
+}
+
+.analysisPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;     /* no padding on top, so the boxes can overlap */
+}
+
+.textLink {
+  color: var(--cream);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.textLink:hover {
+  color: var(--amber);
+  text-decoration-color: var(--amber);
+}
+
+.bg_analysis {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg_analysis::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg_data.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  pointer-events: none;
+}
+
+.bg_analysis::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 47, 45, 0.65);
+  pointer-events: none;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 2;
+  color: var(--charcoal);
+}
+
+.statBox {
+  background-color: #FFFDF7;
+  border: 1px solid var(--sage);
+  border-top: 4px solid var(--amber);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(46, 47, 45, 0.12);
+}
+
+.qRow {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: -1.6rem;            /* overlap the banner edge */
+  position: relative;
+  z-index: 2;
+}
+
+.qBox {
+  font: inherit;
+  font-weight: 600;
+  color: var(--charcoal);
+  background-color: #FFFDF7;
+  border: 2px solid var(--sage);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 6px 16px rgba(46, 47, 45, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.qBox:hover {
+  transform: translateY(-2px);
+  border-color: var(--green);
+}
+
+.qBox:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* The selected button */
+.qBox.activeBox {
+  background-color: var(--charcoal);
+  color: var(--cream);
+  border-color: var(--charcoal);
+}
+
+/* ---------- Analysis: question content ---------- */
+.qPanel {
+  padding-top: 3rem;
+  animation: panelIn 0.45s ease both;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.qLabel {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--charcoal);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+}
+
+.qPanel h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  margin: 0.6rem 0 1.5rem;
+  max-width: 30ch;
+}
+
+.qGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.qViz {
+  background: #FFFDF7;
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+  min-height: 340px;
+  display: grid;
+  place-items: center;
+  color: #4A4C48;
+}
+
+.qFindings h3 {
+  font-family: 'Fraunces', serif;
+  margin: 0 0 0.5rem;
+}
+
+.qFindings ul {
+  padding-left: 1.2rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.qTakeaway {
+  margin-top: 1.5rem;
+  background: #E8EDDC;
+  border-left: 6px solid var(--green);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.qTakeaway p {
+  margin: 0.2rem 0 0;
+  line-height: 1.6;
+}
+
+/* Phones: chart on top, findings below */
+@media (max-width: 800px) {
+  .qGrid { grid-template-columns: 1fr; }
+}
+
+/* People who turn off animations */
+@media (prefers-reduced-motion: reduce) {
+  .qPanel { animation: none; }
+  .qBox { transition: none; }
 }
